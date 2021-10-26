@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    --black: hsl(240, 6%, 13%);
+    --grey: hsl(240, 9%, 89%);
+
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: url(images/background.svg);
+}
+
+.container {
+    position: absolute;
+    text-align: center;
+    color: var(--grey);
+    display: block;
+}
+
+.avatar {
+    width: 10rem;
+    margin: 4.5rem auto 0;
+    position: relative;
+}
+    
+.avatar span {
+    position: absolute;
+    top: -15px;
+    z-index: 1;
+}
+
+@keyframes loading {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+.animation {
+    animation: loading 15s linear infinite;
+  }
+  
+.avatar > img {
+    width: 10rem;
+    height: 11.5rem;
+    object-fit: cover;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+a {
+    color: var(--grey);
+    text-decoration: none;
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+a:hover {
+    position: relative;
+    color: hsl(60, 6%, 44%);
+    transform: scale(1.25, 1.25);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44,1);
+}
+
+p {
+    margin-top: 2rem;
+}
+
+ul {
+    margin-top: 2.5rem;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+ul li:hover {
+    position: relative;
+    transform: scale(1.25, 1.25);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44,1);
+    box-shadow: 0 0, 15px 15px rgba(0,0,0,0.3);
+}
+
+.card {
+    width: 358px;
+    height: 540px;
+}
+
+.cardContent {
+    position: relative;
+    transition: transform 3s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .cardContent {
+    transform: rotateY(.5turn);
+}
+
+.cardFront {
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2em;
+    backface-visibility:hidden;
+    transform-style: preserve-3d;
+    width: 358px;
+    height: 540px;
+    border-radius: 10px;
+    display:grid;
+    align-content:flex-start;
+    border: 3px solid grey;
+}
+
+.cardBack {
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2em;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: 358px;
+    height: 540px;
+    border-radius: 10px;
+    display: grid;
+    align-content:flex-start;
+    border: 3px solid grey;
+}
+
+.cardTitle {
+    font-size: 2rem;
+    transform: translateZ(5rem) rotate(30deg);
+    margin-top: 1rem;
+    margin-left: auto;
+}
+
+.cardSubtitle {
+    transform: translateZ(3rem) rotate(30deg);
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.container {
+    transform: translateZ(5rem);
+}
+
+.cardBack {
+    background: url(images/backgroundDesktop.svg);
+    transform: rotateY(.5turn);
+}
+
+.cardFront {
+    background: url(images/buildTheFuture.svg);
+    background-size: cover;
+}
